@@ -7,6 +7,10 @@ export interface IResUserWallet {
   paymentUrl: string;
 }
 
+export interface IWallet {
+  payment: string;
+}
+
 export interface IWalletInfo {
   walletPrivateKey: string;
   walletAddress: string;
