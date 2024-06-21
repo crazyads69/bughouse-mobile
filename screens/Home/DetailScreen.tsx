@@ -1,12 +1,24 @@
 import { useMutation } from "@tanstack/react-query";
 import { PropsWithChildren, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Alert, Image, ImageBackground, Linking, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Image,
+  ImageBackground,
+  Linking,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Button, Modal } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { userApi } from "../../api/userApi";
 import { useAppSelector } from "../../app/hook";
-import Input from "../../components/common/\bInput";
+import Input from "../../components/common/Input";
 import RateComp from "../../components/common/Rate";
 import RoomDetailInfo from "../../components/common/Room/RoomDetailInfo";
 import COLORS from "../../consts/colors";
@@ -14,7 +26,13 @@ import { room } from "../../models/room";
 import { convertPhone84, getFullAddress, randomId } from "../../utils";
 import { convertMoneyToVndText } from "../../utils/money";
 
-const DetailsScreen = ({ navigation, route }: { navigation: any; route: any }) => {
+const DetailsScreen = ({
+  navigation,
+  route,
+}: {
+  navigation: any;
+  route: any;
+}) => {
   const item: room = route.params;
   const { register, handleSubmit, control } = useForm<{ content: string }>();
   const { user } = useAppSelector((state) => state.authSlice.userInfo);
@@ -59,7 +77,11 @@ const DetailsScreen = ({ navigation, route }: { navigation: any; route: any }) =
           paddingBottom: 50,
         }}
       >
-        <StatusBar barStyle="light-content" translucent backgroundColor="rgba(0,0,0,0)" />
+        <StatusBar
+          barStyle="light-content"
+          translucent
+          backgroundColor="rgba(0,0,0,0)"
+        />
 
         <ScrollView>
           <View style={{ position: "relative" }}>
@@ -70,7 +92,12 @@ const DetailsScreen = ({ navigation, route }: { navigation: any; route: any }) =
               }}
             >
               <View style={style.header}>
-                <Icon name="arrow-back-ios" size={28} color={COLORS.white} onPress={navigation.goBack} />
+                <Icon
+                  name="arrow-back-ios"
+                  size={28}
+                  color={COLORS.white}
+                  onPress={navigation.goBack}
+                />
                 <Icon name="bookmark-border" size={28} color={COLORS.white} />
               </View>
             </ImageBackground>
@@ -80,7 +107,9 @@ const DetailsScreen = ({ navigation, route }: { navigation: any; route: any }) =
           </View>
 
           <View style={{ marginTop: 20, paddingHorizontal: 20 }}>
-            <Text style={{ fontSize: 20, fontWeight: "bold" }}>{item?.name}</Text>
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+              {item?.name}
+            </Text>
             <Text
               style={{
                 fontSize: 12,
@@ -96,7 +125,11 @@ const DetailsScreen = ({ navigation, route }: { navigation: any; route: any }) =
                 marginTop: 10,
               }}
             >
-              <RateComp numStar={4} isDisplayText openReport={() => setOpen(true)} />
+              <RateComp
+                numStar={4}
+                isDisplayText
+                openReport={() => setOpen(true)}
+              />
             </View>
           </View>
           <View
@@ -141,9 +174,16 @@ const DetailsScreen = ({ navigation, route }: { navigation: any; route: any }) =
               </View>
 
               <View style={{ marginLeft: 15, justifyContent: "center" }}>
-                <Text style={{ fontSize: 16 }}>{item?.owner?.name || item?.owner?.username || "Đang cập nhập..."}</Text>
+                <Text style={{ fontSize: 16 }}>
+                  {item?.owner?.name ||
+                    item?.owner?.username ||
+                    "Đang cập nhập..."}
+                </Text>
                 <TouchableOpacity onPress={handleRedirectToCall}>
-                  <Text style={{ fontSize: 16 }}>{convertPhone84(item?.owner?.phone || "0911336236") || "Đang cập nhập..."}</Text>
+                  <Text style={{ fontSize: 16 }}>
+                    {convertPhone84(item?.owner?.phone || "0911336236") ||
+                      "Đang cập nhập..."}
+                  </Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -153,23 +193,63 @@ const DetailsScreen = ({ navigation, route }: { navigation: any; route: any }) =
             <RoomDetailInfo
               label="ROOM STATUS"
               value={item?.status === "already-rent" ? "Đã Thuê" : "Còn phòng"}
-              highlight={item?.status === "already-rent" ? "unactive" : "active"}
+              highlight={
+                item?.status === "already-rent" ? "unactive" : "active"
+              }
             />
-            <RoomDetailInfo label="Giá phòng" value={convertMoneyToVndText(item?.basePrice)} />
+            <RoomDetailInfo
+              label="Giá phòng"
+              value={convertMoneyToVndText(item?.basePrice)}
+            />
             <RoomDetailInfo label="Diện tích" value={item?.acreage + " m2"} />
-            <RoomDetailInfo label="Sức chứa" value={item?.gender === "All" ? "Nam / Nữ" : item.gender == "Male" ? "Nam" : "Nữ"} />
-            <RoomDetailInfo label="Đặt cọc" value={convertMoneyToVndText(item?.deposit)} />
-            <RoomDetailInfo label="Tiền điện" value={convertMoneyToVndText(3500)} />
-            <RoomDetailInfo label="Địa chỉ" value={item.address.fullText} width="100%" />
+            <RoomDetailInfo
+              label="Sức chứa"
+              value={
+                item?.gender === "All"
+                  ? "Nam / Nữ"
+                  : item.gender == "Male"
+                  ? "Nam"
+                  : "Nữ"
+              }
+            />
+            <RoomDetailInfo
+              label="Đặt cọc"
+              value={convertMoneyToVndText(item?.deposit)}
+            />
+            <RoomDetailInfo
+              label="Tiền điện"
+              value={convertMoneyToVndText(3500)}
+            />
+            <RoomDetailInfo
+              label="Địa chỉ"
+              value={item.address.fullText}
+              width="100%"
+            />
           </DetailsScreen.Card>
 
           <DetailsScreen.Card label="Tiện ích">
-            <RoomDetailInfo label="ROOM STATUS" value={item?.status === "already-rent" ? "Đã Thuê" : "Còn phòng"} highlight="unactive" />
-            <RoomDetailInfo label="ROOM RATES" value={convertMoneyToVndText(item?.basePrice)} />
+            <RoomDetailInfo
+              label="ROOM STATUS"
+              value={item?.status === "already-rent" ? "Đã Thuê" : "Còn phòng"}
+              highlight="unactive"
+            />
+            <RoomDetailInfo
+              label="ROOM RATES"
+              value={convertMoneyToVndText(item?.basePrice)}
+            />
             <RoomDetailInfo label="ACREAGE" value={item?.acreage + " m2"} />
-            <RoomDetailInfo label="CAPACITY" value={item?.gender === "All" ? "Male/Female" : item.gender} />
-            <RoomDetailInfo label="DEPOSIT" value={convertMoneyToVndText(item?.deposit)} />
-            <RoomDetailInfo label="ELECTRICITY" value={convertMoneyToVndText(3500)} />
+            <RoomDetailInfo
+              label="CAPACITY"
+              value={item?.gender === "All" ? "Male/Female" : item.gender}
+            />
+            <RoomDetailInfo
+              label="DEPOSIT"
+              value={convertMoneyToVndText(item?.deposit)}
+            />
+            <RoomDetailInfo
+              label="ELECTRICITY"
+              value={convertMoneyToVndText(3500)}
+            />
           </DetailsScreen.Card>
 
           <DetailsScreen.Card label="Mô tả">
@@ -185,35 +265,53 @@ const DetailsScreen = ({ navigation, route }: { navigation: any; route: any }) =
             width: "100%",
           }}
         >
-          {item?.owner?.username === user.username && item.status !== "already-rent" && (
-            <Button mode="contained" style={style.btn} onPress={handleEditRoom}>
-              <Text
-                style={{
-                  color: COLORS.white,
-                  fontSize: 18,
-                }}
+          {item?.owner?.username === user.username &&
+            item.status !== "already-rent" && (
+              <Button
+                mode="contained"
+                style={style.btn}
+                onPress={handleEditRoom}
               >
-                Sửa phòng của bạn
-              </Text>
-            </Button>
-          )}
+                <Text
+                  style={{
+                    color: COLORS.white,
+                    fontSize: 18,
+                  }}
+                >
+                  Sửa phòng của bạn
+                </Text>
+              </Button>
+            )}
 
-          {item && item.owner?.username !== user.username && item.status !== "already-rent" && (
-            <Button mode="contained" style={style.btn} onPress={handleRentRoom}>
-              <Text
-                style={{
-                  color: COLORS.white,
-                  fontSize: 18,
-                }}
+          {item &&
+            item.owner?.username !== user.username &&
+            item.status !== "already-rent" && (
+              <Button
+                mode="contained"
+                style={style.btn}
+                onPress={handleRentRoom}
               >
-                Thuê ngay
-              </Text>
-            </Button>
-          )}
+                <Text
+                  style={{
+                    color: COLORS.white,
+                    fontSize: 18,
+                  }}
+                >
+                  Thuê ngay
+                </Text>
+              </Button>
+            )}
         </View>
       </ScrollView>
       <Modal visible={open} onDismiss={() => setOpen(false)}>
-        <View style={{ backgroundColor: "white", padding: 20, marginHorizontal: 20, borderRadius: 10 }}>
+        <View
+          style={{
+            backgroundColor: "white",
+            padding: 20,
+            marginHorizontal: 20,
+            borderRadius: 10,
+          }}
+        >
           <View style={{ paddingBottom: 10, marginBottom: 10 }}>
             <Text style={{ fontSize: 20 }}>Báo cáo phòng</Text>
           </View>
@@ -237,7 +335,12 @@ const DetailsScreen = ({ navigation, route }: { navigation: any; route: any }) =
           </View>
 
           <View style={{ marginTop: 10 }}>
-            <Button loading={reportMutate.isLoading} disabled={reportMutate.isLoading} mode="contained" onPress={handleSubmit(handleReport)}>
+            <Button
+              loading={reportMutate.isLoading}
+              disabled={reportMutate.isLoading}
+              mode="contained"
+              onPress={handleSubmit(handleReport)}
+            >
               Gửi
             </Button>
           </View>
@@ -254,7 +357,9 @@ interface IProps extends PropsWithChildren {
 DetailsScreen.Card = ({ label, children }: IProps) => {
   return (
     <View style={style.cardStyle}>
-      <Text style={{ fontSize: 20, fontWeight: "bold", marginBottom: 5 }}>{label}</Text>
+      <Text style={{ fontSize: 20, fontWeight: "bold", marginBottom: 5 }}>
+        {label}
+      </Text>
 
       <View
         style={{
@@ -369,7 +474,15 @@ const style = StyleSheet.create({
     justifyContent: "center",
   },
 
-  textDes: { padding: 10, borderColor: "#DDDDDD", borderWidth: 1, borderRadius: 4, minHeight: 140, maxHeight: 140, fontSize: 16 },
+  textDes: {
+    padding: 10,
+    borderColor: "#DDDDDD",
+    borderWidth: 1,
+    borderRadius: 4,
+    minHeight: 140,
+    maxHeight: 140,
+    fontSize: 16,
+  },
 });
 
 export default DetailsScreen;

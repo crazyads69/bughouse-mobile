@@ -18,7 +18,7 @@ import StepIndicator from "react-native-step-indicator-v2";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { addressApi } from "../../api/addressApi";
 import { roomApi } from "../../api/roomApi";
-import Input from "../../components/common/\bInput";
+import Input from "../../components/common/Input";
 import Button from "../../components/common/Button/Button";
 import DropdownSelect from "../../components/common/Dropdown";
 import MainHeader from "../../components/common/Header/MainHeader";
