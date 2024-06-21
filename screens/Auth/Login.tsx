@@ -12,7 +12,7 @@ import COLORS from "../../consts/colors";
 import { ResponseSignIn } from "../../models/auth";
 import { loginSchema } from "../../schemas/auth";
 import { getAsyncStorage, setAsyncStorage } from "../../utils/storages";
-
+//
 const Login = ({ navigation }: { navigation: any }) => {
   const {
     control,

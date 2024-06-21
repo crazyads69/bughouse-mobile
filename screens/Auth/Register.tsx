@@ -9,7 +9,7 @@ import ButtonText from "../../components/common/Button/ButtonText";
 import COLORS from "../../consts/colors";
 import { signUpSchema } from "../../schemas/auth";
 import { convertPhone84 } from "../../utils";
-
+//
 const initDefaultValues = {
   email: "",
   password: "",
