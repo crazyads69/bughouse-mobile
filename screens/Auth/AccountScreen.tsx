@@ -11,6 +11,7 @@ import { IWalletInfo } from "../../models/user";
 import { convertPhone84 } from "../../utils";
 import { convertMoneyToVndText } from "../../utils/money";
 
+//
 const AccountScreen = ({ navigation }: { navigation: any }) => {
   const { user } = useAppSelector((state) => state.authSlice.userInfo);
 
@@ -81,7 +82,7 @@ const AccountScreen = ({ navigation }: { navigation: any }) => {
           <Text style={{ color: "#777777", marginLeft: 20 }}>{user.email || "yonedoan@gmail.com"}</Text>
         </View>
       </View>
-
+              
       <View style={styles.infoBoxWrapper}>
         <TouchableOpacity
           onPress={() => navigation.navigate("WalletScreen")}
@@ -150,7 +151,7 @@ const AccountScreen = ({ navigation }: { navigation: any }) => {
     </SafeAreaView>
   );
 };
-
+//
 export default AccountScreen;
 
 const styles = StyleSheet.create({
