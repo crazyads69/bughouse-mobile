@@ -9,8 +9,7 @@ import { Log, LogError, LogRequest, LogResponse } from "../utils/logs";
 const createAxiosInstance = () => {
   const axiosInstance: AxiosInstance = axios.create({
     // baseURL: "http://localhost:8000/bh",
-    baseURL:
-      "https://67a2-2001-ee0-4fc1-d9d0-ad77-c4cf-88b0-5bf6.ngrok-free.app/bh",
+    baseURL: "https://a147-42-116-6-42.ngrok-free.app/bh",
     headers: {
       "Content-Type": "application/json",
     },

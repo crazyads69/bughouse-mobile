@@ -1,4 +1,9 @@
-import { FormConfirmOtp, FormValuesSignIn, FormValuesSignUp, ResponseSignIn } from "../models/auth";
+import {
+  FormConfirmOtp,
+  FormValuesSignIn,
+  FormValuesSignUp,
+  ResponseSignIn,
+} from "../models/auth";
 import axiosInstance from "./axiosClient";
 
 import axiosClient from "./axiosClient";
