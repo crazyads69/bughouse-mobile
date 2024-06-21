@@ -20,7 +20,7 @@ import ContractScreen from "./Room/ContractScreen";
 import RoomDeclaration from "./Room/RoomDeclaration";
 import RoomForRentScreen from "./Room/RoomForRentScreen";
 const Stack = createStackNavigator<any>();
-
+//
 const RootStack: FunctionComponent = () => {
   const { accessToken } = useAppSelector((state) => state.authSlice.userInfo);
 
