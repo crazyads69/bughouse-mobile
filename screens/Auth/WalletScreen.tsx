@@ -8,7 +8,7 @@ import ListService from "../../components/others/Wallet/ListService";
 import RecentTransaction from "../../components/others/Wallet/RecentTransaction";
 import { IWalletInfo } from "../../models/user";
 import { convertMoneyToVndText } from "../../utils/money";
-
+//
 const WalletScreen = () => {
   const [walletInfo, setWalletInfo] = useState<IWalletInfo>();
 
@@ -48,7 +48,7 @@ const WalletScreen = () => {
     </SafeAreaView>
   );
 };
-
+//
 export default WalletScreen;
 
 const styles = StyleSheet.create({
