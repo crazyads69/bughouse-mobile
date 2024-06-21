@@ -27,7 +27,7 @@ import { typeGender, typeOfRoom, utilities } from "../../consts/room";
 import { room } from "../../models/room";
 import { schemaFormCreateRoom } from "../../schemas/form";
 import { randomId } from "../../utils";
-
+//
 const labels = ["Thông tin ", "Địa chỉ", "Tiện ích", "Xác nhận"];
 const customStyles = {
   stepIndicatorSize: 30,

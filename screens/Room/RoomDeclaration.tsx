@@ -7,7 +7,7 @@ import { serviceApi } from "../../api/serviceApi";
 import { userApi } from "../../api/userApi";
 import MainHeader from "../../components/common/Header/MainHeader";
 import { getCurrentDate } from "../../utils/time";
-
+//
 const RoomDeclaration = ({ navigation, route }: { navigation: any; route: any }) => {
   const idRoom: string = route.params;
   const {

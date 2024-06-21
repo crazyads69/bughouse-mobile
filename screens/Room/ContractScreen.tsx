@@ -7,7 +7,7 @@ import COLORS from "../../consts/colors";
 import { room } from "../../models/room";
 import { getContract, getContractTerm } from "../../utils/contract";
 import { formatDDMMYYYY } from "../../utils/time";
-
+//
 const ContractScreen = ({ navigation, route }: { navigation: any; route: any }) => {
   const { item, isSign }: { item: room; isSign: boolean } = route.params;
   const [isShowContract, setIsShowContract] = useState(() => isSign || false);
